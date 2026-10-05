@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b1ujawl1xpje5"]
+
+[sub_resource type="Curve2D" id="Curve2D_rxg2q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[node name="Main" type="Node2D" unique_id=1435627579]
+
+[node name="MobTimer" type="Timer" parent="." unique_id=1924760449]
+wait_time = 0.5
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=1221422178]
+
+[node name="StartTimer" type="Timer" parent="." unique_id=935545381]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPostion" type="Marker2D" parent="." unique_id=307655623]
+position = Vector2(240, 450)
+
+[node name="MobPath" type="Path2D" parent="." unique_id=438172139]
+curve = SubResource("Curve2D_rxg2q")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1506632315]

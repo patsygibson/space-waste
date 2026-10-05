@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://38ic7jfn7a26"]
+
+[ext_resource type="Texture2D" uid="uid://cgl7ynqgmt5pr" path="res://art/enemyFlyingAlt_1.png" id="1_b3mxk"]
+[ext_resource type="Script" uid="uid://d0klv70h2equb" path="res://mob.gd" id="1_dy6sc"]
+[ext_resource type="Texture2D" uid="uid://dv4iu0ves3qu2" path="res://art/enemyFlyingAlt_2.png" id="2_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://bd64ygky5cn26" path="res://art/enemySwimming_1.png" id="3_gfurk"]
+[ext_resource type="Texture2D" uid="uid://cbnpaipptdeut" path="res://art/enemySwimming_2.png" id="4_ieysi"]
+[ext_resource type="Texture2D" uid="uid://dd7opu0g5i06c" path="res://art/enemyWalking_1.png" id="5_cixyi"]
+[ext_resource type="Texture2D" uid="uid://b4l1cpjfg2apu" path="res://art/enemyWalking_2.png" id="6_7ulmv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jfba5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b3mxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1qmh0")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gfurk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ieysi")
+}],
+"loop": 1,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cixyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7ulmv")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcqmr"]
+radius = 63.0
+height = 140.0
+
+[node name="Mob" type="RigidBody2D" unique_id=1679706451]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_dy6sc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1089613824]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_jfba5")
+animation = &"fly"
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=312682682]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_pcqmr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2005789723]
